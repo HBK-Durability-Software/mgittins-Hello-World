@@ -1,0 +1,29 @@
+name: Sync Master Branch
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout local repository
+        uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: Add upstream repository
+        run: git remote add upstream https://github.com/octocat/Hello-World.git
+
+      - name: Fetch upstream master
+        run: git fetch upstream master
+
+      - name: Merge upstream master into local master
+        run: git merge upstream/master
+
+      - name: Push changes to local repository
+        run: |
+          git push origin master
