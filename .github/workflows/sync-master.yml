@@ -9,15 +9,15 @@ jobs:
   sync:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Add upstream repository
-        run: git remote add upstream https://github.com/octocat/Hello-World.git
-        
+    steps:  
       - name: Checkout local repository
         uses: actions/checkout@v2
         with:
           ref: master
           fetch-depth: 0
+
+      - name: Add upstream repository
+        run: git remote add upstream https://github.com/octocat/Hello-World.git
 
       - name: Diagnostics
         run: git remote -v
