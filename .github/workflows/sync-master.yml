@@ -25,7 +25,7 @@ jobs:
         run: git fetch upstream
 
       - name: Merge upstream master into local master
-        run: git merge upstream/master
+        run: git merge master upstream/master
 
       - name: Push changes to local repository
         run: |
