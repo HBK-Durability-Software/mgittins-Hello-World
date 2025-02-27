@@ -18,8 +18,11 @@ jobs:
       - name: Add upstream repository
         run: git remote add upstream https://github.com/octocat/Hello-World.git
 
-      - name: Fetch upstream master
-        run: git fetch upstream master
+      - name: Diagnostics
+        run: git remote -v
+
+      - name: Fetch upstream
+        run: git fetch upstream
 
       - name: Merge upstream master into local master
         run: git merge upstream/master
